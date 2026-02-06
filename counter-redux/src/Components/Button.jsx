@@ -13,7 +13,7 @@ const Button = () => {
             >+</button>
             <br/>
             <div>{counter}</div>
-            <br/>
+            <br/>      
             <button
             onClick={() => dispatch(decrement())}
             >-</button>
