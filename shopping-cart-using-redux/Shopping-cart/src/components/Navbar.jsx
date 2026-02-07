@@ -1,31 +1,28 @@
 import { FaShoppingCart } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
-
-
-
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const { cart } = useSelector((state) => state);
   return (
-    <div className='bg-blue-500'>
-      <div className="flex flex-row justify-between" >
+    <div>
+      <div className="flex justify-between items-center h-20 max-w-6xl mx-auto" >
         <NavLink to="/">
-          <div>
-            <img src="https://www.google.com/imgres?q=code%20logo&imgurl=https%3A%2F%2Fwebweb.ams3.cdn.digitaloceanspaces.com%2Fdata%2Fmodern-college-of-eng-pune.webweb.ai.in%2FLogo.png&imgrefurl=https%3A%2F%2Fmoderncoe.edu.in%2Fcode-club-new&docid=_bkn5Zoih0fGOM&tbnid=RP1v37RWRsXYsM&vet=12ahUKEwjr7fP3q8eSAxU_R2wGHThLCJA4ChCc8A56BAg7EAE..i&w=997&h=962&hcb=2&ved=2ahUKEwjr7fP3q8eSAxU_R2wGHThLCJA4ChCc8A56BAg7EAE" />
+          <div className='ml-5'>
+            <img src="../download.png" className='h-14' />
           </div>
         </NavLink>
-        <div>
+        <div className='flex items-center font-medium text-slate-100 mr-5 space-x-6 '>
           <NavLink to="/">
             <p>Home</p>
           </NavLink>
           <NavLink to="/cart">
-            <div>
+            <div className='relative'>
               <FaShoppingCart size={30} />
+              <span className='absolute -top-1 -right-2 bg-green-600 text-xs w-5 h-5 flex justify-center items-center animate-bounce rounded-full text-white'>{cart.length}</span>
             </div>
           </NavLink>
-
-
         </div>
-
       </div>
     </div>
   )
